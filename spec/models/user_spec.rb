@@ -4,6 +4,7 @@ RSpec.describe User, type: :model do
   let(:user) { User.create!(name: "Bloccit User", email: "user@bloccit.com", password: "password") }
 
   it { is_expected_to have_many(:posts) }
+  it { is_expected_to have_many(:comments) }
   #shoulda test name
   it { is_expected.to validate_presence_of(:name) }
   it { is_expected.to validate_length_of(:name).is_at_least(1) }
@@ -28,6 +29,8 @@ RSpec.describe User, type: :model do
       user.save
       expect(user.name).to eq "Bloc User"
     end
+  end
+
 
     it "responds to role" do
       expect(user).to respond_to(:role)
@@ -40,6 +43,11 @@ RSpec.describe User, type: :model do
     it "responds to member?" do
       expect(user).to respond_to(:member?)
     end
+
+    it "responds to moderator?" do
+      expect(user).to respond_to(:moderator)
+    end
+
 
     context "member user" do
       it "returns true for #member" do

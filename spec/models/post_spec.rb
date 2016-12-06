@@ -15,10 +15,10 @@ RSpec.describe Post, type: :model do
   it { is_expected.to belong_to(:topic) }
   it { is_expected.to belong_to(:user) }
 
-  it { is_expected.to validate_precense_of(:title) }
-  it { is_expected.to validate_precense_of(:body) }
-  it { is_expected.to validate_precense_of(:topic) }
-  it { is_expected.to validate_precense_of(:user) }
+  it { is_expected.to validates_precense_of(:title) }
+  it { is_expected.to validates_precense_of(:body) }
+  it { is_expected.to validates_precense_of(:topic) }
+  it { is_expected.to validates_precense_of(:user) }
 
   it {is_expected.to validate_length_of(:title).is_at_least(5) }
   it {is_expected.to validate_length_of(:body).is_at_least(20) }

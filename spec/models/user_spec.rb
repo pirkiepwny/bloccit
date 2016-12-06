@@ -24,7 +24,7 @@ RSpec.describe User, type: :model do
     end
 
     it "should format the users name" do
-      user.name = "bloc user"
+      user.name = "Bloc user"
       user.save
       expect(user.name).to eq "Bloc User"
     end

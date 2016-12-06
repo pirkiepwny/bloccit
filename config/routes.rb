@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
-  resources :questions 
-  resources :topics
+  resources :questions
+  resources :topics do
+    resources :posts, expect: [:index]
+  end
 
-  resources :posts, expect: [:index]
+
 
 
   resources :users, only: [:new, :create]

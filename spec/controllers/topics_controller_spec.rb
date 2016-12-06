@@ -3,6 +3,10 @@ require 'rails_helper'
 RSpec.describe TopicsController, type: :controller do
   let(:my_topic) { Topic.create!(name: RandomData.random_sentence, description: RandomData.random_paragraph) }
 
+before do
+  session[:user_id] = User.create(email:"blah@blah.com", password:"password").id
+ end
+
   describe "GET index" do
     it "returns http success" do
       get :index

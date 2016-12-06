@@ -17,7 +17,10 @@ class TopicsController < ApplicationController
   end
 
   def create
-    @topic = Topic.new(topic_params)
+    @topic = Topic.new
+    @topic.name = params[:topic][:name]
+    @topic.description = params[:topic][:description]
+    @topic.public = params[:topic][:public]
 
     if @topic.save
       redirect_to @topic, notice: "Topic was saved successfully."
